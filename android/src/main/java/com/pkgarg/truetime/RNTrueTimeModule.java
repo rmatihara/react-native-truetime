@@ -55,7 +55,7 @@ public class RNTrueTimeModule extends ReactContextBaseJavaModule {
         // System time in milliseconds
         long time = 0;
         try {
-          time = TrueTime.now().getTime();
+          time = TrueTimeRx.now().getTime();
         } catch (Exception e) {}
 
         // React Native bridge complains if we try to pass back a long directly

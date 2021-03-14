@@ -54,7 +54,7 @@ public class TrueTimeSingleton {
             TrueTime.build()
                     .withNtpHost("time.google.com")
                     .withLoggingEnabled(false)
-                    .withServerResponseDelayMax(5000) // (in ms)
+                    .withServerResponseDelayMax(30000) // (in ms)
                     .withSharedPreferencesCache(context)
                     .initialize();
 

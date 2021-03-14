@@ -36,12 +36,6 @@ dependencies {
     compile 'com.facebook.react:react-native:+'
 
     // TruTime NTP Time library
-    //compile 'com.github.instacart.truetime-android:library:3.3'
-    compile 'com.github.martinfilipekcz.truetime-android:library:feature~boot_id_detection-SNAPSHOT'
-
-    //compile 'com.github.instacart.truetime-android:library-extension-rx:3.3'
-    //compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-
-    //compile 'io.reactivex.rxjava2:rxjava:2.1.0'
+    compile 'com.github.rodrigmatrix:truetime-android:-SNAPSHOT'
 }
   
