@@ -36,6 +36,6 @@ dependencies {
     compile 'com.facebook.react:react-native:+'
 
     // TruTime NTP Time library
-    compile 'com.github.rodrigmatrix:truetime-android:-SNAPSHOT'
+    compile 'com.github.martinfilipekcz.truetime-android:library:feature~boot_id_detection-SNAPSHOT'
 }
   
