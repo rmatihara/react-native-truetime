@@ -50,16 +50,17 @@ public class RNTrueTimeModule extends ReactContextBaseJavaModule {
      * Return ntp server time in millisecond that cannot be influenced by the user
      * @param promise
      */
-    @ReactMethod(isBlockingSynchronousMethod = true)
+    @ReactMethod
     public void getTrueTime(Promise promise) {
         // System time in milliseconds
         long time = 0;
         try {
          
-          time = TrueTimeRx.now().getTime();
+          time = TrueTime.now().getTime();
           if (time == 0) {
-            await TrueTimeSingleton.initialize(reactContext);
-            time = TrueTimeRx.now().getTime();
+            Context currentActivity = getCurrentActivity();
+            initTrueTime(currentActivity);
+            time = TrueTime.now().getTime();
           }
         } catch (Exception e) {}
 
