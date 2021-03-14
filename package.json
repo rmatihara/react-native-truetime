@@ -20,5 +20,8 @@
   "license": "",
   "peerDependencies": {
     "react-native": "0.57.1"
+  },
+  "dependencies": {
+    "react-native-truetime": "^0.1.2"
   }
 }
