@@ -8,7 +8,6 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Promise;
-import com.facebook.react.bridge.Callback;
 import com.instacart.library.truetime.TrueTime;
 
 import java.io.IOException;
@@ -56,11 +55,11 @@ public class RNTrueTimeModule extends ReactContextBaseJavaModule {
         long time = 0;
         try {
          
-          time = TrueTimeRx.now().getTime();
+          time = TrueTime.now().getTime();
           if (time == 0) {
             Context currentActivity = getCurrentActivity();
             initTrueTime(currentActivity);
-            time = TrueTimeRx.now().getTime();
+            time = TrueTime.now().getTime();
           }
         } catch (Exception e) {}
 
