@@ -26,8 +26,6 @@ public class RNTrueTimeModule extends ReactContextBaseJavaModule {
     return "RNTrueTime";
   }
 
-
-
     public static void initTrueTime(Context context) throws IOException {
         TrueTimeSingleton.Instance().initialize(context);
     }
@@ -54,13 +52,12 @@ public class RNTrueTimeModule extends ReactContextBaseJavaModule {
         // System time in milliseconds
         long time = 0;
         try {
-         
-          time = TrueTime.now().getTime();
-          if (time == 0) {
-            Context currentActivity = getCurrentActivity();
-            initTrueTime(currentActivity);
             time = TrueTime.now().getTime();
-          }
+            if (time == 0) {
+                Context currentActivity = getCurrentActivity();
+                initTrueTime(currentActivity);
+                time = TrueTime.now().getTime();
+            }
         } catch (Exception e) {}
 
         // React Native bridge complains if we try to pass back a long directly

@@ -40,6 +40,6 @@ dependencies {
     implementation ('com.facebook.react:react-native:0.20.1')
     implementation 'androidx.appcompat:appcompat:1.2.0'
     // TruTime NTP Time library
-    implementation 'com.github.rodrigmatrix.truetime-android:library:-SNAPSHOT'
+    implementation 'com.github.martinfilipekcz.truetime-android:library:feature~boot_id_detection-SNAPSHOT'
 }
   
