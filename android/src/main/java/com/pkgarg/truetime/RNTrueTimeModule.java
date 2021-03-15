@@ -56,11 +56,11 @@ public class RNTrueTimeModule extends ReactContextBaseJavaModule {
         long time = 0;
         try {
          
-          time = TrueTime.now().getTime();
+          time = TrueTimeRx.now().getTime();
           if (time == 0) {
             Context currentActivity = getCurrentActivity();
             initTrueTime(currentActivity);
-            time = TrueTime.now().getTime();
+            time = TrueTimeRx.now().getTime();
           }
         } catch (Exception e) {}
 
