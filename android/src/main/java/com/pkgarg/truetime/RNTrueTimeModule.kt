@@ -1,18 +1,16 @@
 package com.pkgarg.truetime
 
+import android.content.Context
+import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
-import com.facebook.react.bridge.Promise
-import android.content.Context
-import java.io.IOException
 import com.instacart.library.truetime.TrueTime
-import kotlin.Throws
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlin.Exception
+import java.io.IOException
 import kotlin.coroutines.CoroutineContext
 
 class RNTrueTimeModule(
@@ -47,9 +45,13 @@ class RNTrueTimeModule(
     @ReactMethod
     fun getTrueTime(promise: Promise) {
         launch {
-            startTrueTime()
-            val time = TrueTime.now()?.time ?: 0
-            promise.resolve(time.toString())
+            try {
+                startTrueTime()
+                val time = TrueTime.now()?.time ?: 0
+                promise.resolve(time.toString())
+            } catch (e: Exception) {
+                promise.reject(e)
+            }
         }
     }
 
