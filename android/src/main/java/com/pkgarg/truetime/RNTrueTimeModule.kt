@@ -6,7 +6,6 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.instacart.library.truetime.TrueTime
-import com.lyft.kronos.AndroidClockFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,11 +16,6 @@ import kotlin.coroutines.CoroutineContext
 class RNTrueTimeModule(
     reactContext: ReactApplicationContext
 ) : ReactContextBaseJavaModule(reactContext), CoroutineScope {
-
-    private val kronosClock by lazy {
-        AndroidClockFactory.createKronosClock(reactContext)
-    }
-
 
 
     override val coroutineContext: CoroutineContext
@@ -52,7 +46,9 @@ class RNTrueTimeModule(
     fun getTrueTime(promise: Promise) {
         launch {
             try {
-                promise.resolve(kronosClock.getCurrentNtpTimeMs().toString())
+                startTrueTime()
+                val time = TrueTime.now()?.time ?: 0
+                promise.resolve(time.toString())
             } catch (e: Exception) {
                 promise.resolve("0")
             }
