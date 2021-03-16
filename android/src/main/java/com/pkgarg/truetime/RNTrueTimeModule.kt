@@ -50,7 +50,7 @@ class RNTrueTimeModule(
                 val time = TrueTime.now()?.time ?: 0
                 promise.resolve(time.toString())
             } catch (e: Exception) {
-                promise.reject(e)
+                promise.resolve("0")
             }
         }
     }
