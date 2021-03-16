@@ -3,11 +3,7 @@
 
 ## Getting started
 
-`$ npm install react-native-truetime --save`
-
-### Mostly automatic installation
-
-`$ react-native link react-native-truetime`
+`$ npm install git://github.com/rmatihara/react-native-truetime.git --save --force`
 
 ### Additional Steps (iOS and CocoaPods)
 
